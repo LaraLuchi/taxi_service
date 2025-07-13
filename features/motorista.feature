@@ -35,23 +35,10 @@ When visualizo os detalhes dessa corrida,
 Then não vejo o botão "Avaliar",
 And os dados da avaliação anterior são exibidos
 
-Scenario: Visualização de corrida com avaliação pendente
-Given que estou logado como motorista,
-And tenho uma corrida anterior ainda não avaliada,
-When estou na tela de menu principal,
-Then vejo um pop-up escrito “Como foi a sua corrida?”,
-And o pop-up exibe os botões “Enviar avaliação” e  “pular”,
-And eu clico “pular”, 
-Then o pop-up é fechado.
-Then teste teste teste teste ROTEIRO
 
-Scenario: Visualização de corrida com avaliação pendente //duplicado para o roteiro
-Given que estou logado como motorista,
-And tenho uma corrida anterior ainda não avaliada,
-When estou na tela de menu principal,
-Then vejo um pop-up escrito “Como foi a sua corrida?”,
-And o pop-up exibe os botões “Enviar avaliação” e  “pular”,
-And eu clico “pular”, 
-Then o pop-up é fechado.
-Then teste teste teste teste ROTEIRO
 
+Scenario: Visualizar histórico de corridas realizadas
+Given que o motorista "João Pereira" está logado e possui 3 corridas finalizadas nas últimas 24 horas
+When ele acessa a aba "Histórico de Corridas"
+Then o sistema exibe uma lista com as corridas finalizadas contendo data, horário, valor e destino
+And cada item da lista possui um botão para avaliar a corrida
